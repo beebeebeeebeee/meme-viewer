@@ -2,7 +2,7 @@ const fs = require('fs')
 const {exec} = require('child_process');
 const path = require('path');
 
-const DB_PATH = DB_PATH
+const DB_PATH = ".db"
 
 function readEnv() {
     const lines = fs.readFileSync('.env')
