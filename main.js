@@ -42,7 +42,13 @@ async function main() {
     readEnv()
     const {FOLDER_PATH: folderPath} = process.env
     const seenList = DB.read()
-    const imageList = fs.readdirSync(folderPath).filter(e => !seenList.includes(e))
+    const imageList = fs.readdirSync(folderPath)
+        .filter(e => !seenList.includes(e))
+        .map(e => ({
+            name: e,
+            time: fs.statSync(path.join(folderPath, e)).mtime.getTime()
+        }))
+        .sort((a, b) => b.time - a.time)
 
     if (imageList.length === 0) {
         console.log('No image left, please refill some images.')
@@ -50,8 +56,8 @@ async function main() {
     }
 
     const selectedImage = imageList[Math.floor(Math.random() * imageList.length)]
-    DB.write([...seenList, selectedImage])
-    open(path.join(folderPath, selectedImage))
+    DB.write([...seenList, selectedImage.name])
+    open(path.join(folderPath, selectedImage.name))
 }
 
 void main()
