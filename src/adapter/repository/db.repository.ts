@@ -9,10 +9,10 @@ export class DbRepository implements IDbRepository {
   }
 
   public read(): string[] {
-    return this.localDb.DB.read();
+    return this.localDb.read();
   }
 
   public write(obj: string[]): string[] {
-    return this.localDb.DB.write(obj);
+    return this.localDb.write(obj);
   }
 }
