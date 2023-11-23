@@ -5,7 +5,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 export class SystemService implements ISystemService {
-  openFile(filePath: string) {
+  openFile(filePath: string): void {
     exec(`open "${filePath}"`);
   }
 

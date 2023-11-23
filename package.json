@@ -1,7 +1,7 @@
 {
-    "name": "typescript-template",
+    "name": "meme-viewer",
     "version": "1.0.0",
-    "description": "The template for typescript nodejs project.",
+    "description": "Random draw a meme",
     "main": "src/index.ts",
     "scripts": {
         "start": "ts-node --esm --experimental-specifier-resolution=node src/index.ts",
@@ -10,14 +10,12 @@
     },
     "keywords": [
         "typescript",
-        "template"
+        "meme"
     ],
     "author": "Fung Mak",
     "license": "ISC",
-    "dependencies": {
-        "dotenv": "^16.3.1"
-    },
     "devDependencies": {
+        "dotenv": "^16.3.1",
         "@types/node": "^18.16.3",
         "@typescript-eslint/eslint-plugin": "^5.61.0",
         "@typescript-eslint/parser": "^5.61.0",
